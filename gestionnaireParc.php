@@ -1,5 +1,9 @@
 <?php
+declare(strict_types=1);
 require_once('VehiculeInterface.php');
+require_once('vehicule.php');
+require_once('voiture.php');
+require_once('camion.php');
 
 /**
  * CONSIGNES : Classe 'GestionnaireParc'
@@ -15,4 +19,47 @@ require_once('VehiculeInterface.php');
  */
 
 // Votre code POO ci-dessous :
+
+class GestionnaireParc {
+
+    // Attributs
+    private array   $vehicules = [];
+
+    /**
+     * Ajoute un véhicule au tableau $vehicules
+     * 
+     * @param VehicleInterface $vehicule Récupère les valeurs indiqués à la création d'un véhicule
+     */
+    public function ajouterVehicule(VehiculeInterface $vehicule): void {
+        array_push($this->vehicules, $vehicule);
+    }
+
+    /**
+     * Tri les véhicules avec l'attribut $estDisponible à True, renvoie un tableau de ces véhicules
+     * 
+     * @return array $vehiculesDisponibles
+     */
+    public function getVehiculesDisponibles(): array {
+        $vehiculesDisponibles = [];
+        foreach ($this->vehicules as $vehicule) {
+            if ($vehicule->estDisponible()) {
+                $vehiculesDisponibles[] = $vehicule;
+            }
+        }
+        return $vehiculesDisponibles;
+    }
+
+    /**
+     * Calcul le revenu total potentiel de location de l'intégralité du parc automobile
+     * 
+     * @return float $revenuPotentielTotal
+     */
+    public function calculerRevenuPotentielTotal(): float {
+        $revenuPotentielTotal = 0.0;
+        foreach ($this->vehicules as $vehicule) {
+            $revenuPotentielTotal += $vehicule->calculerTarifJournalier();
+        }
+        return $revenuPotentielTotal;
+    }
+}
 ?>
