@@ -62,7 +62,7 @@ abstract class Vehicule implements VehiculeInterface {
     /**
      * Récupère la valeur de l'attribut $prixDeBase
      * 
-     * @return string $prixDeBase
+     * @return float $prixDeBase
      */
     public function getPrixDebase(): float {
         return $this->prixDeBase;

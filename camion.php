@@ -40,6 +40,11 @@ class Camion extends Vehicule {
         $this->chargeUtileMax = $chargeUtileMax;
     }
 
+    /**
+     * Calcul le prix de location final - applique une majoration de 20.0 € par tonne de charge utile maximale
+     * 
+     * @return float $prixActualise Montant final à indiquer
+     */
     public function calculerTarifJournalier(): float {
         return $this->prixDeBase + (20.0 * $this->chargeUtileMax);
     }

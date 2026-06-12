@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-require_once('gestionnaireParc.php');
 require_once('VehiculeInterface.php');
 require_once('vehicule.php');
 require_once('voiture.php');
 require_once('camion.php');
+require_once('gestionnaireParc.php');
 
 /**
  * CONSIGNES : Script d'exécution et de test
@@ -47,7 +47,7 @@ function afficher(GestionnaireParc $gestionnaireParc): void {
         print("<p>".$vehicule->getMarque()." - Immatriculé : ".$vehicule->getImmatriculation()." - Tarif : ".number_format($vehicule->calculerTarifJournalier(), 2, ',')." €/j.</p>");
     }
     print("<h2>Revenu Total Potentiel :</h2>");
-    print("<p>".number_format($gestionnaireParc->calculerRevenuPotentielTotal(), 2, ',')." €.</p>");
+    print("<p>".number_format($gestionnaireParc->calculerRevenuPotentielTotal(), 2, ',')." €/j.</p>");
 }
 
 // Appel de la fonction afficher() avec l'attribut $gestionnaireParc

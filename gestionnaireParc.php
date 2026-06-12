@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 require_once('VehiculeInterface.php');
-require_once('vehicule.php');
-require_once('voiture.php');
-require_once('camion.php');
 
 /**
  * CONSIGNES : Classe 'GestionnaireParc'
